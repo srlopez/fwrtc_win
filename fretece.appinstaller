@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <AppInstaller xmlns="http://schemas.microsoft.com/appx/appinstaller/2018"
+    Uri="C:\Users\santi\dev\IKUZAIN\fwrtc_win/fretece.appinstaller" Version="1.0.3.0">
+    <MainPackage Name="com.flutter.fretece" Version="1.0.3.0"
+      Publisher="CN=Msix Testing, O=Msix Testing Corporation, S=Some-State, C=US"
+      Uri="C:\Users\santi\dev\IKUZAIN\fwrtc_win/versions/fretece_1.0.3.0.msix"
+      ProcessorArchitecture="x64" />
+    <UpdateSettings>
+      <OnLaunch HoursBetweenUpdateChecks="0" 
+        UpdateBlocksActivation="true" ShowPrompt="true" />
+        <AutomaticBackgroundTask />
+        </UpdateSettings>
+  </AppInstaller>
