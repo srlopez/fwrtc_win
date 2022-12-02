@@ -1,0 +1,31 @@
+HUB 150.241.255.90:3000
+======================
+Inno Setup
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Inno Setup 6
+
+
+https://retroportalstudio.medium.com/creating-exe-executable-file-for-flutter-desktop-apps-windows-ea7c338465e
+https://docs.flutter.dev/development/platform-integration/windows/building
+
+# MSDOS
+flutter build windows
+COPY /Y C:\Windows\System32\msvcp140.dll build\windows\runner\Release
+COPY /Y C:\Windows\System32\vcruntime140.dll build\windows\runner\Release
+COPY /Y C:\Windows\System32\vcruntime140_1.dll build\windows\runner\Release
+DIR build\windows\runner\Release\
+REM Ejecutar el script iss 
+"C:\Program Files (x86)\Inno Setup 6\Compil32.exe"  /cc Installers\setup_script.iss
+REM Copiar el instlador a la carpeta del HUB
+COPY /Y Installers\IkuzainSetup.exe ..\hub-fwrtc\app
+DIR ..\hub-fwrtc\app
+
+
+==================
+
+ERROR
+MissingPluginException (MissingPluginException(No implementation found for method startRecordToFile on channel FlutterWebRTC.Method))
+
+===== Ws
+
+https://blog.logrocket.com/webrtc-signaling-websocket-node-js/
+
