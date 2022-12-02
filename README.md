@@ -28,6 +28,6 @@ El proyecto consta de varias partes, quizás la más visible es el aplicativo en
 
     Servicio desarrollado en [node.js](https://nodejs.org/es/), instalado como servicio en el Politécnico EASO.
 
-La pila de protocolos utilizados la representa esta imagen:
+La [pila de protocolos](https://fr.wikipedia.org/wiki/WebRTC) utilizados  la representa esta imagen:
 
-![imagen](https://www.researchgate.net/publication/354662096/figure/fig3/AS:1144580984586247@1649900780259/WebRTC-protocol-stack-for-signalling-and-media.png "WebRTC")
+ <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Webrtc_triangle_architecture.svg" width="60%" height="60%">
