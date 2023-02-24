@@ -28,6 +28,7 @@ El proyecto consta de varias partes, quizás la más visible es el aplicativo en
 
     Servicio desarrollado en [node.js](https://nodejs.org/es/), instalado como servicio en el Politécnico EASO.
 
-La [pila de protocolos](https://fr.wikipedia.org/wiki/WebRTC) utilizados  la representa esta imagen:
+El funcionamiento general [del protocólo](https://docs.freedomrobotics.ai/docs/how-webrtc-works) utilizado queda representado en esta imagen:
+ <!--img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Webrtc_triangle_architecture.svg" width="60%" height="60%"-->
 
- <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Webrtc_triangle_architecture.svg" width="60%" height="60%">
+ <img src="https://files.readme.io/ffb45be-WebRTC123.png" width="50%" height="50%">
