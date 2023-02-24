@@ -35,7 +35,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_background: ^1.1.0
-  flutter_webrtc: ^0.9.7
+  #flutter_webrtc: ^0.9.7
+  flutter_webrtc: ^0.9.23
   socket_io_client: ^2.0.0-beta.4-nullsafety.0
   platform_device_id: ^1.0.1
   shared_preferences: ^2.0.0-nullsafety

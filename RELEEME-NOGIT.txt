@@ -13,12 +13,12 @@ COPY /Y C:\Windows\System32\msvcp140.dll build\windows\runner\Release
 COPY /Y C:\Windows\System32\vcruntime140.dll build\windows\runner\Release
 COPY /Y C:\Windows\System32\vcruntime140_1.dll build\windows\runner\Release
 DIR build\windows\runner\Release\
-REM Ejecutar el script iss 
-"C:\Program Files (x86)\Inno Setup 6\Compil32.exe"  /cc Installers\setup_script.iss
-REM Copiar el instlador a la carpeta del HUB
+REM Ejecutar el script iss (modo gráfico o modo comando)
+REM "C:\Program Files (x86)\Inno Setup 6\Compil32.exe"  /cc Installers\setup_script.iss
+"C:\Program Files (x86)\Inno Setup 6\iscc" /O+ Installers\setup_script.iss
+REM Copiar el instalador a la carpeta del HUB
 COPY /Y Installers\IkuzainSetup.exe ..\hub-fwrtc\app
 DIR ..\hub-fwrtc\app
-
 
 ==================
 

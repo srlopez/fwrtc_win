@@ -519,7 +519,7 @@ class _HomePageState extends State<HomePage> {
               onPressed: _hub.connected
                   ? _inCalling
                       ? () =>
-                          _cancelCall("LLamada finalizada") //_hub.cancelCall
+                          _cancelCall("Actuación finalizada") //_hub.cancelCall
                       : () {} //_beginCall
                   : () {},
               icon: Icon(_inCalling ? Icons.call_end : Icons.phone),

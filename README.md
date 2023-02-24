@@ -2,7 +2,7 @@
 
 ## [IKUZAIN 4.0](https://tknika.eus/cont/proyecto-de-viceconsejeria/ikuzain-asistente-sanitario-digital-4-0)
 
-El proyecto “IKUZAIN Asistente Sanitario Digital 4.0.” trata de diseñar una arquitectura de  aplicativos que permita a los Técnicos de Emergencias Sanitarias, de Auxiliar de Enfermería y  de Atención a Personas en Situación de Dependencia presentes junto al paciente en el lugar de la emergencia, en el domicilio o en la institución, ponerse en contacto con el profesional sanitaria situado en el Centro Coordinador de Emergencias (112), en centro de salud o en el centro hospitalario. Dicho contacto se realizará de forma directa y segura mediante los diferentes aplicativos que permitan emitir y recibir la escena de asistencia al centro de diagnóstico. 
+El proyecto “IKUZAIN Asistente Sanitario Digital 4.0.” trata de desplegar una serie de aplicaciones que permita a los Técnicos de Emergencias Sanitarias, de Auxiliar de Enfermería y  de Atención a Personas en Situación de Dependencia presentes junto al paciente en el lugar de la emergencia, en el domicilio o en la institución, ponerse en contacto con el profesional sanitaria situado en el Centro Coordinador de Emergencias (112), en centro de salud o en el centro hospitalario. Dicho contacto se realizará de forma directa y segura mediante los diferentes aplicativos que permitan emitir y recibir la escena de asistencia al centro de diagnóstico. 
 Esto permitirá que la asistencia sanitaria y sociosanitaria que imparten los técnicos sea más completa.
 
 ## PARTICIPANTES

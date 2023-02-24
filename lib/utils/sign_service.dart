@@ -147,8 +147,8 @@ class SignalingService {
       onRecibidoListaDePares();
     });
     // RECIBIMOS LA ORDEN DE COLGAR LA LLAMADA
-    _socket.on('on-hangup', (_) => onCallCancelada('📞 Llamada colgada'));
-    _socket.on('on-failed', (_) => onCallCancelada('📢 Llamada fallida'));
+    _socket.on('on-hangup', (_) => onCallCancelada('📞 Conexión finalizada'));
+    _socket.on('on-failed', (_) => onCallCancelada('📢 Conexión fallida'));
 
     // RECIBIMOS UNA LLAMADA
     _socket.on('on-call', (data) async {
@@ -203,7 +203,7 @@ class SignalingService {
   void cancelCall() async {
     //sendMesage('hangup', localSession['peerid']); // A
     onCallCancelada(
-        '📞 Llamada finalizada'); // B <--  o A o B localPeerID (pero tambien en el hub)
+        '📞 Actuación finalizada'); // B <--  o A o B localPeerID (pero tambien en el hub)
     sendMesage('hangup', remoteInfo['peerid']);
   }
 

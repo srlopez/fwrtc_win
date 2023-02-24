@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
   final _localRenderer = RTCVideoRenderer();
   final _remoteRenderer = RTCVideoRenderer();
   // AQUI MEDIARECORDER NO COMPILA
-  //final _mediaRecorder = MediaRecorder();
+  final _mediaRecorder = MediaRecorder();
 
   bool _isLocalMirror = true;
 
@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
   void deactivate() {
     super.deactivate();
     if (_inCalling) {
-      _onRemoteCallHangUp('🗙 Llamada desactivada');
+      _onRemoteCallHangUp('🗙 Actuación desactivada');
     }
     _localRenderer.dispose();
     _remoteRenderer.dispose();
@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                             ), // .RTCVideoViewObjectFitCover
                           ),
                         )
-                      : const Text('NO CALL',
+                      : const Text('SIN ACTUACIÓN',
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.fade,
                           style: TextStyle(
@@ -520,7 +520,7 @@ class _HomePageState extends State<HomePage> {
               onPressed: _hub.connected
                   ? _inCalling
                       ? () async {
-                          await _cancelCall("📞 Has finalizado la llamada");
+                          await _cancelCall("📞 Has finalizado la actuación");
                         } //_hub.cancelCall
                       : () {} //_beginCall
                   : () {},
@@ -667,18 +667,20 @@ class _HomePageState extends State<HomePage> {
     //"/storage/emulated/0/Android/data/com.fstrange.fretece/files/"
     log('[FILE] $filePath');
 
-    final videoTrack = _hub.remoteStream
+    final videoTrack = _hub.localStream //_hub.remoteStream
         .getVideoTracks()
         .firstWhere((track) => track.kind == 'video');
     // final audioChannel = _hub.remoteStream
     //     .getAudioTracks()
     //     .firstWhere((track) => track.kind == 'audio');
 
-    // AQUI ESTO NO HAY MANERA DE QUE COMPILE
+    // AQUI ESTO NO HAY MANERA DE QUE EJECUTE
     // await _mediaRecorder.start(
     //   filePath,
     //   videoTrack: videoTrack,
-    //   audioChannel: null, //audioChannel,
+    //   //audioChannel: RecorderAudioChannel.INPUT, // en el móvil
+    //   //audioChannel: RecorderAudioChannel.OUTPUT,
+    //   //audioChannel: null,// audioChannel,
     // );
     setState(() {});
   }
