@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart';
 
@@ -24,15 +23,15 @@ class _HomePageState extends State<HomePage> {
 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  static const appwhite = Colors.white38;
+  //static const appwhite = Colors.white38;
   static const appcolor = Color.fromARGB(44, 255, 255, 255);
   static const appagua = Colors.white54;
   static const appblack = Color.fromARGB(160, 56, 56, 56);
 
   final _localRenderer = RTCVideoRenderer();
   final _remoteRenderer = RTCVideoRenderer();
-  // AQUI MEDIARECORDER NO COMPILA
-  final _mediaRecorder = MediaRecorder();
+  // AQUI MEDIARECORDER  COMPILA pero da error al ejecutar _mediaRecorder.start
+  // final _mediaRecorder = MediaRecorder();
 
   bool _isLocalMirror = true;
 
@@ -78,7 +77,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    const double titleFontSize = 11 * 1.618033 * 3.1416;
+    //const double titleFontSize = 11 * 1.618033 * 3.1416;
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
@@ -221,19 +220,19 @@ class _HomePageState extends State<HomePage> {
             _mirrorRemote = !_mirrorRemote;
           },
         ),
-        Directionality(
-          textDirection: TextDirection.rtl,
-          child: TextButton.icon(
-            label: Text(_isRecordingOn ? 'STOP' : 'START',
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold, color: Colors.white)),
-            icon: Icon(
-              _isRecordingOn ? Icons.stop : Icons.fiber_manual_record,
-              color: Colors.red,
-            ),
-            onPressed: _isRecordingOn ? _stopRecording : _startRecording,
-          ),
-        ),
+        // Directionality(
+        //   textDirection: TextDirection.rtl,
+        //   child: TextButton.icon(
+        //     label: Text(_isRecordingOn ? 'STOP' : 'START',
+        //         style: const TextStyle(
+        //             fontWeight: FontWeight.bold, color: Colors.white)),
+        //     icon: Icon(
+        //       _isRecordingOn ? Icons.stop : Icons.fiber_manual_record,
+        //       color: Colors.red,
+        //     ),
+        //     onPressed: _isRecordingOn ? _stopRecording : _startRecording,
+        //   ),
+        // ),
       ],
       PopupMenuButton<String>(
         onSelected: (str) {}, //_selectAudioOutput,
@@ -241,18 +240,18 @@ class _HomePageState extends State<HomePage> {
           //List<PopupMenuEntry<String>> menu = [];
           final menu = <PopupMenuEntry<String>>[];
 
-          menu.add(
-            PopupMenuItem<String>(
-              value: 'upload',
-              child: const Text('Enviar última grabación'),
-              onTap: () async {
-                showSnackBar(context, '📤 Envío iniciado');
-                var result = await FileService().onPressedUploadFile();
-                showSnackBar(context, result);
-              },
-            ),
-          );
-          menu.add(const PopupMenuDivider());
+          // menu.add(
+          //   PopupMenuItem<String>(
+          //     value: 'upload',
+          //     child: const Text('Enviar última grabación'),
+          //     onTap: () async {
+          //       showSnackBar(context, '📤 Envío iniciado');
+          //       var result = await FileService().onPressedUploadFile();
+          //       showSnackBar(context, result);
+          //     },
+          //   ),
+          // );
+          // menu.add(const PopupMenuDivider());
           menu.add(
             PopupMenuItem<String>(
               value: 'agua',
@@ -335,7 +334,8 @@ class _HomePageState extends State<HomePage> {
   AlertDialog _buildDialogServidores(TextEditingController _ctrlHub,
           TextEditingController _ctrlUpload, BuildContext context) =>
       AlertDialog(
-        title: const Text('Servidores remotos'),
+        // title: const Text('Servidores remotos'),
+        title: const Text('Servidor HUB'),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -346,22 +346,22 @@ class _HomePageState extends State<HomePage> {
                 hintText: 'Indica la dirección del HUB',
               ),
             ),
-            TextField(
-              controller: _ctrlUpload,
-              decoration: const InputDecoration(
-                labelText: 'Upload URL',
-                hintText: 'Indica la dirección registro de Grabaciones',
-              ),
-            ),
+            // TextField(
+            //   controller: _ctrlUpload,
+            //   decoration: const InputDecoration(
+            //     labelText: 'Upload URL',
+            //     hintText: 'Indica la dirección registro de Grabaciones',
+            //   ),
+            // ),
           ],
         ),
         actions: <Widget>[
-          TextButton(
-              onPressed: () {
-                _ctrlHub.text = wsserver;
-                _ctrlUpload.text = uploadurl;
-              },
-              child: const Text('(Reset Cloud)')),
+          // TextButton(
+          //     onPressed: () {
+          //       _ctrlHub.text = wsserver;
+          //       _ctrlUpload.text = uploadurl;
+          //     },
+          //     child: const Text('(Reset Cloud)')),
           TextButton(
               onPressed: () {
                 settings.signalingHost = _ctrlHub.text;
