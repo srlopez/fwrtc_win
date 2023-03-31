@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Ikuzain"
-#define MyAppVersion "1.5"
+#define MyAppVersion "1.6"
 #define MyAppPublisher "Ikuzain Group."
 #define MyAppURL "https://easo.hezkuntza.net/es/inicio"
 #define MyAppExeName "fwrtc.exe"

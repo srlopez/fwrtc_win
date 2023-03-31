@@ -98,7 +98,8 @@ class SignalingService {
     localInfo['peerid'] = settings.peerId;
     localInfo['alias'] = settings.alias;
     localInfo['description'] = settings.description;
-    localInfo['position'] = await GeoService.determinePosition();
+    // localInfo['position'] = await GeoService.determinePosition();
+    // Location permissions are denied <- fuera de mi pc
 
     mediaDevicesList = await navigator.mediaDevices.enumerateDevices();
     _connect();
