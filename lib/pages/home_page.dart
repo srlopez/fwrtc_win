@@ -252,19 +252,19 @@ class _HomePageState extends State<HomePage> {
           //   ),
           // );
           // menu.add(const PopupMenuDivider());
-          menu.add(
-            PopupMenuItem<String>(
-              value: 'agua',
-              child:
-                  Text((_showMarca ? 'Ocultar' : 'Mostrar') + ' marca de agua'),
-              onTap: () async {
-                setState(() {
-                  _showMarca = !_showMarca;
-                });
-              },
-            ),
-          );
-          menu.add(const PopupMenuDivider());
+          // menu.add(
+          //   PopupMenuItem<String>(
+          //     value: 'agua',
+          //     child:
+          //         Text((_showMarca ? 'Ocultar' : 'Mostrar') + ' marca de agua'),
+          //     onTap: () async {
+          //       setState(() {
+          //         _showMarca = !_showMarca;
+          //       });
+          //     },
+          //   ),
+          // );
+          // menu.add(const PopupMenuDivider());
           menu.add(
             PopupMenuItem<String>(
               value: 'about',
