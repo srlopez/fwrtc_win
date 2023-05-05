@@ -29,15 +29,17 @@ class _HomePageState extends State<HomePage> {
   static const appblack = Color.fromARGB(160, 56, 56, 56);
 
   final _localRenderer = RTCVideoRenderer();
-  var _remoteRenderer = RTCVideoRenderer();
+  final _remoteRenderer = RTCVideoRenderer();
   // AQUI MEDIARECORDER  COMPILA pero da error al ejecutar _mediaRecorder.start
   // final _mediaRecorder = MediaRecorder();
 
   bool _isLocalMirror = true;
 
   bool _inCalling = false;
+  bool _isTorchOn = false;
   bool _isRecordingOn = false;
 
+  bool _showMarca = true;
   bool _mirrorRemote = true;
   int _quarterTurns = 0;
 
@@ -605,6 +607,68 @@ class _HomePageState extends State<HomePage> {
         ],
       );
 
+  Widget _buildFloatingActionButtonBar() => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            // const SizedBox(width: 20),
+            // // GRABAR
+            // FloatingActionButton(
+            //     child:
+            //         Icon(_isRecordingOn ? Icons.stop : Icons.fiber_manual_record),
+            //     onPressed: _isRecordingOn ? _stopRecording : _startRecording,
+            //     foregroundColor: Colors.red,
+            //     backgroundColor: Colors.white,
+            //     mini: true),
+            // Expanded(child: Container()),
+            // FLASH
+            FloatingActionButton(
+              child: Icon(_isTorchOn ? Icons.flash_off : Icons.flash_on),
+              onPressed: _toggleTorch,
+            ),
+            const SizedBox(width: 10),
+            // CAMARA
+            FloatingActionButton(
+              child: const Icon(Icons.switch_video),
+              onPressed: _toggleCamera,
+            ),
+            const SizedBox(width: 10),
+            // LLAMADA
+            FloatingActionButton(
+                // onPressed: _inCalling ? _hangUp : _makeCall,
+                onPressed: _hub.connected
+                    ? _inCalling
+                        ? _hub.cancelCall
+                        : _hub.getSessions //_beginCall
+                    : () {},
+                //: _scaffoldKey.currentState?.openEndDrawer,
+                tooltip: _inCalling ? 'Hangup' : 'Call',
+                child: Icon(_inCalling ? Icons.call_end : Icons.phone),
+                backgroundColor:
+                    _inCalling || !_hub.connected ? Colors.red : Colors.green),
+          ],
+        ),
+      );
+
+  void _toggleTorch() async {
+    //if (_localStream == null) throw Exception('Stream is not initialized');
+
+    final videoTrack = _hub.localStream
+        .getVideoTracks()
+        .firstWhere((track) => track.kind == 'video');
+    final has = await videoTrack.hasTorch();
+    if (has) {
+      log('[TORCH] Current camera supports torch mode');
+      setState(() => _isTorchOn = !_isTorchOn);
+      await videoTrack.setTorch(_isTorchOn);
+      log('[TORCH] Torch state is now ${_isTorchOn ? 'on' : 'off'}');
+    } else {
+      log('[TORCH] Current camera does not support torch mode');
+    }
+  }
+
   Future<void> _stopRecording() async {
     showSnackBar(context, 'Grabación finalizada');
     _isRecordingOn = false;
@@ -673,13 +737,9 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> _cancelCall(String msg) async {
     if (_isRecordingOn) await _stopRecording();
-
-    // SE CREA DE NUEVO EL RENDERER.
-    // PERDÏA LA PROPORCIONALIDAD AL RECIBIR LA SEGUNDA LLAMADA
     _remoteRenderer.srcObject = null;
-    _remoteRenderer.dispose();
-    _remoteRenderer = RTCVideoRenderer();
-
+    // _remoteRenderer.dispose();
+    // _remoteRenderer=RTCVideoRenderer();
     await _remoteRenderer.initialize();
 
     setState(() {
