@@ -1,4 +1,4 @@
-const appName = 'IKUSAIN';
+const appName = 'IKUZAIN';
 const wsserver = 'ws://150.241.255.90:3000/';
 const uploadurl = 'http://150.241.255.90:3000/upload';
 

@@ -264,7 +264,30 @@ class _HomePageState extends State<HomePage> {
           //     },
           //   ),
           // );
-          // menu.add(const PopupMenuDivider());
+          menu.add(
+            PopupMenuItem<String>(
+              value: 'identificacion',
+              child: const Text('Establecer identificación'),
+              onTap: () {
+                var localPeer = _hub.localInfo;
+                var _controllerAlias =
+                    TextEditingController(text: settings.alias);
+                var _controllerDescripcion =
+                    TextEditingController(text: settings.description);
+
+                Future<void>.delayed(
+                    const Duration(), // OR const Duration(milliseconds: 500),
+                    () => showDialog(
+                        context: context,
+                        builder: (context) => _buildDialogIdentificacion(
+                            _controllerAlias,
+                            _controllerDescripcion,
+                            localPeer,
+                            context)));
+              },
+            ),
+          );
+          menu.add(const PopupMenuDivider());
           menu.add(
             PopupMenuItem<String>(
               value: 'about',
