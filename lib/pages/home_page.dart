@@ -109,11 +109,10 @@ class _HomePageState extends State<HomePage> {
                           },
                           child: RotatedBox(
                             quarterTurns: _quarterTurns,
-                            child: RTCVideoView(
-                              _remoteRenderer,
-                              mirror: _mirrorRemote, //true,
-                              //objectFit: RTCVideoViewObjectFit.RTCVideoViewObjectFitContain
-                            ), // .RTCVideoViewObjectFitCover
+                            child: RTCVideoView(_remoteRenderer,
+                                mirror: _mirrorRemote, //true,
+                                objectFit: RTCVideoViewObjectFit
+                                    .RTCVideoViewObjectFitContain), // .RTCVideoViewObjectFitCover
                           ),
                         )
                       : const Text('SIN ACTUACIÓN',
