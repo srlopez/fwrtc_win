@@ -148,8 +148,8 @@ class SignalingService {
       onRecibidoListaDePares();
     });
     // RECIBIMOS LA ORDEN DE COLGAR LA LLAMADA
-    _socket.on('on-hangup', (_) => onCallCancelada('📞 Conexión finalizada'));
-    _socket.on('on-failed', (_) => onCallCancelada('📢 Conexión fallida'));
+    _socket.on('on-hangup', (_) => onCallCancelada('⛑ Actuación finalizada'));
+    _socket.on('on-failed', (_) => onCallCancelada('🤦 Conexión fallida'));
 
     // RECIBIMOS UNA LLAMADA
     _socket.on('on-call', (data) async {
