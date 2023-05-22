@@ -26,8 +26,8 @@ REM PASTE hasta aquí
 # MSDOS Debug
 REM COPY DESDE AQUÍ
 COPY /Y C:\Windows\System32\msvcp140.dll build\windows\runner\Debug
-COPY /Y C:\Windows\System32\vcruntime140.dll build\windows\runner\Debug
-COPY /Y C:\Windows\System32\vcruntime140_1.dll build\windows\runner\Debug
+COPY /Y C:\Windows\System32\vcruntime140*.dll build\windows\runner\Debug
+REM COPY /Y C:\Windows\System32\vcruntime140_1.dll build\windows\runner\Debug
 DIR build\windows\runner\Debug\
 REM Ejecutar el script iss (modo gráfico o modo comando)
 REM "C:\Program Files (x86)\Inno Setup 6\Compil32.exe"  /cc Installers\setup_script_debug.iss

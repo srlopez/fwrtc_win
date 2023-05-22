@@ -44,7 +44,9 @@ Source: "C:\Users\santi\dev\IKUZAIN\fwrtc_win\build\windows\runner\Debug\libwebr
 Source: "C:\Users\santi\dev\IKUZAIN\fwrtc_win\build\windows\runner\Debug\platform_device_id_windows_plugin.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\santi\dev\IKUZAIN\fwrtc_win\build\windows\runner\Debug\msvcp140.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\santi\dev\IKUZAIN\fwrtc_win\build\windows\runner\Debug\vcruntime140.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\santi\dev\IKUZAIN\fwrtc_win\build\windows\runner\Debug\vcruntime140d.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\santi\dev\IKUZAIN\fwrtc_win\build\windows\runner\Debug\vcruntime140_1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\santi\dev\IKUZAIN\fwrtc_win\build\windows\runner\Debug\vcruntime140_1d.dll"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
