@@ -104,8 +104,9 @@ class _HomePageState extends State<HomePage> {
                   child: _inCalling
                       ? GestureDetector(
                           onTap: () {
-                            setState(() {});
-                            _quarterTurns = (_quarterTurns + 1) % 4;
+                            // Elimino la posibilidad de giro sólo con pulsar en la pantalla(click)
+                            // setState(() {});
+                            // _quarterTurns = (_quarterTurns + 1) % 4;
                           },
                           child: RotatedBox(
                             quarterTurns: _quarterTurns,
@@ -194,7 +195,9 @@ class _HomePageState extends State<HomePage> {
       ),
 
       Expanded(child: Container()),
-      if (_inCalling) ...[
+      if (_inCalling & false) ...[
+        // Quitar el FALSE false para mostrar los botones de giro
+        // Los he quitado por que parece que no funciona en determinadas ocasiones
         TextButton.icon(
           label: const Text(''),
           icon: const Icon(
@@ -217,6 +220,7 @@ class _HomePageState extends State<HomePage> {
             _mirrorRemote = !_mirrorRemote;
           },
         ),
+
         // Directionality(
         //   textDirection: TextDirection.rtl,
         //   child: TextButton.icon(
